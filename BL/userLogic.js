@@ -32,6 +32,7 @@ async function register(data) {
 async function get(id) {
   if (id) {
     const result = await userController.readOne({ _id: id });
+    return result;
   }
 
   if (!result) throw { code: 404, message: "not found" };
