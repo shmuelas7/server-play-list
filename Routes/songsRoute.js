@@ -17,4 +17,14 @@ router.get("/search/:name", async (req, res) => {
   }
 });
 
+router.post("/createPlayList", async (req, res) => {});
+router.post("/deletePlayLiat", async (req, res) => {});
+//create play list
+
+router.post("/addSong", async (req, res) => {}); //add song to play list
+
+router.post("/deleteSong", async (req, res) => {}); //delete song from play list
+
+router.get("/getSongs", async (req, res) => {}); //get songs from play list
+
 module.exports = router;
