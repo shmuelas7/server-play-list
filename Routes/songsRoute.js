@@ -17,14 +17,33 @@ router.get("/search/:name", async (req, res) => {
   }
 });
 
-router.post("/createPlayList", async (req, res) => {});
-router.post("/deletePlayLiat", async (req, res) => {});
+router.post("/PlayList", async (req, res) => {
+  try {
+    const res = await songsLogic.createPlayList(req.body);
+    res.send(res);
+  } catch (err) {
+    res.status(err.code).send(err.message);
+  }
+});
+router.post("/PlayLiat", async (req, res) => {
+  try {
+  } catch (err) {}
+});
 //create play list
 
-router.post("/addSong", async (req, res) => {}); //add song to play list
+router.post("/addSong", async (req, res) => {
+  try {
+  } catch (err) {}
+}); //add song to play list
 
-router.post("/deleteSong", async (req, res) => {}); //delete song from play list
+router.post("/deleteSong/:ID", async (req, res) => {
+  try {
+  } catch (err) {}
+}); //delete song from play list
 
-router.get("/getSongs", async (req, res) => {}); //get songs from play list
+router.get("/getSongs", async (req, res) => {
+  try {
+  } catch (err) {}
+}); //get songs from play list
 
 module.exports = router;

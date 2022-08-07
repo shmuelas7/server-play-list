@@ -11,6 +11,7 @@ async function login(loginData) {
   if (user.password !== password)
     throw { code: 401, message: " שם משתמש או סיסמה לא נכונים" }; //bcrypt.compare
   const token = jwtFn.createToken(user._id);
+
   return token;
 }
 

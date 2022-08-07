@@ -3,26 +3,6 @@ const songsController = require("../DL/controller/songsController");
 
 async function search(search) {
   console.log(search);
-  //   let data = "";
-
-  //   let config = {
-  //     method: "get",
-  //     url: "https://simple-youtube-search.p.rapidapi.com/search?query=justin&safesearch=false",
-  //     headers: {
-  //       "X-RapidAPI-Key": "4394a47c55msh4527f37a71bd108p1eafe5jsnd8b00091672b",
-  //       "X-RapidAPI-Host": "simple-youtube-search.p.rapidapi.com",
-  //     },
-  //     data: data,
-  //   };
-
-  //   axios(config)
-  //     .then((response) => {
-  //       console.log(JSON.stringify(response.data));
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-
   try {
     const { data } = await axios.get(
       `https://simple-youtube-search.p.rapidapi.com/search?query=${search}&safesearch=false`,
@@ -43,5 +23,14 @@ async function search(search) {
   }
 }
 
+async function createPlayList(name) {
+  const checkExist = songsController.read(name);
+  if (checkExist) {
+    throw { code: 404, message: " פלאי ליסט קיים" };
+  }
+  songsController.create(name);
+  return "נוצר פלאי ליסט חדש";
+}
+
 // search("justin");
-module.exports = { search };
+module.exports = { search, createPlayList };
